@@ -11,25 +11,25 @@ const CART_KEY = 'mariahs_cart_v1';
 const PRODUCTS = {
   classic: {
     id: 'classic',
-    name: 'Classic Sourdough',
+    name: 'Classic',
     price: PRICE_PER_LOAF,
     img: 'classic.jpg'
   },
   olive: {
     id: 'olive',
-    name: 'Olive & Rosemary Sourdough',
+    name: 'Olive & Rosemary',
     price: PRICE_PER_LOAF,
     img: 'https://images.unsplash.com/photo-1586444248902-2f64eddc13df?auto=format&fit=crop&w=600&q=80'
   },
   chocolate: {
     id: 'chocolate',
-    name: 'Chocolate Chip Sourdough',
+    name: 'Chocolate Chip',
     price: PRICE_PER_LOAF,
     img: 'chocolate.jpg'
   },
   cinnamon: {
     id: 'cinnamon',
-    name: 'Cinnamon Raisin Sourdough',
+    name: 'Cinnamon Raisin',
     price: PRICE_PER_LOAF,
     img: 'cinnamon.webp'
   }

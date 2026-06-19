@@ -307,6 +307,36 @@ img { max-width: 100%; display: block; }
   font-weight: 600;
 }
 
+/* ---------- Pairings (Home) ---------- */
+.pairings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+.pairing-card {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 26px 24px;
+  box-shadow: var(--shadow);
+  border-left: 5px solid var(--terracotta);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.pairing-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(59, 42, 26, 0.18);
+}
+.pairing-card h3 {
+  color: var(--cocoa);
+  margin-bottom: 8px;
+  font-size: 1.2rem;
+}
+.pairing-card p {
+  color: #6b5a45;
+  margin: 0;
+  font-size: 0.97rem;
+  line-height: 1.55;
+}
+
 /* ---------- Benefits cards (Why Sourdough) ---------- */
 .benefit-grid {
   display: grid;
