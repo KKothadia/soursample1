@@ -1,18 +1,21 @@
 /* =========================================================
    Mariah's Sourdough Co. — shared styles
-   Palette: warm crust gold, terracotta, deep cocoa, cream
+   Palette: Forest green, warm champagne, refined terracotta/clay
    ========================================================= */
 
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Outfit:wght@100..900&display=swap');
+
 :root {
-  --cream:        #FFF8EC;
-  --crust:        #E8B14B;   /* bright golden crust */
-  --crust-dark:   #C9892B;
-  --terracotta:   #D9542B;   /* energetic accent */
-  --cocoa:        #3B2A1A;   /* deep brown for text */
-  --sage:         #6B8A4E;   /* fresh / organic accent */
-  --soft:         #F4E6C9;
-  --shadow:       0 6px 18px rgba(59, 42, 26, 0.12);
-  --radius:       14px;
+  --cream:        #FAF9F6;   /* Alabaster off-white for a cleaner, modern background */
+  --crust:        #df73c8;   /* Modern warm champagne/oat gold */
+  --crust-dark:   #c253ac;   /* Richer gold border/accent */
+  --terracotta:   #1F5335;   /* Rich primary forest green for CTA buttons, active links, prices */
+  --cocoa:        #12241A;   /* Obsidian green-black for text and headers */
+  --sage:         #abe9c9;   /* Bright fresh green for success states/added to cart */
+  --soft:         #E5ECE8;   /* Soft sage-tinted sand-gray */
+  --shadow:       0 8px 30px rgba(18, 36, 26, 0.05); /* Softer, high-end shadow */
+  --radius:       16px;      /* Slightly more rounded corners for a modern UI */
+  --muted:        #506659;   /* Muted pine-gray for description/secondary text */
 }
 
 * { box-sizing: border-box; }
@@ -20,26 +23,27 @@
 html, body {
   margin: 0;
   padding: 0;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Outfit', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: var(--cocoa);
   background: var(--cream);
-  line-height: 1.55;
+  line-height: 1.6;
   scroll-behavior: smooth;
 }
 
 h1, h2, h3 {
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
+  font-weight: 700;
   color: var(--cocoa);
-  letter-spacing: -0.5px;
+  letter-spacing: -0.02em;
   margin: 0 0 0.5em;
 }
 
-h1 { font-size: 2.6rem; }
-h2 { font-size: 2rem; }
-h3 { font-size: 1.3rem; }
+h1 { font-size: 2.8rem; }
+h2 { font-size: 2.2rem; }
+h3 { font-size: 1.4rem; }
 
-a { color: var(--terracotta); text-decoration: none; }
-a:hover { text-decoration: underline; }
+a { color: var(--terracotta); text-decoration: none; transition: color .15s ease; }
+a:hover { text-decoration: underline; color: #173F28; }
 
 img { max-width: 100%; display: block; }
 
@@ -65,16 +69,16 @@ img { max-width: 100%; display: block; }
 }
 
 .brand {
-  font-family: Georgia, serif;
-  font-size: 1.4rem;
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.55rem;
   color: var(--crust);
-  font-weight: bold;
+  font-weight: 700;
   letter-spacing: 0.3px;
   text-decoration: none;
   transition: opacity .15s ease;
 }
 .brand:hover { text-decoration: none; opacity: 0.85; }
-.brand span { color: var(--cream); font-weight: normal; }
+.brand span { color: var(--cream); font-weight: 300; }
 
 .site-nav {
   display: flex;
@@ -96,8 +100,9 @@ img { max-width: 100%; display: block; }
   padding: 8px 16px;
   border-radius: 999px;
   font-weight: bold;
+  transition: background .15s ease, transform .12s ease;
 }
-.cart-link:hover { background: #f1c469; }
+.cart-link:hover { background: #d2a75b; transform: translateY(-1px); }
 
 /* ---------- Hero ---------- */
 .hero {
@@ -105,7 +110,7 @@ img { max-width: 100%; display: block; }
   height: 70vh;
   min-height: 460px;
   background:
-    linear-gradient(180deg, rgba(59,42,26,0.45), rgba(59,42,26,0.55)),
+    linear-gradient(180deg, rgba(24, 36, 29, 0.5), rgba(24, 36, 29, 0.65)),
     url('https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
   display: flex;
   align-items: center;
@@ -140,13 +145,13 @@ img { max-width: 100%; display: block; }
   font-weight: bold;
   border-radius: 999px;
   cursor: pointer;
-  transition: transform .12s ease, background .15s ease;
+  transition: transform .12s ease, background .15s ease, box-shadow .15s ease;
   text-decoration: none;
 }
-.btn:hover { background: #b94320; transform: translateY(-1px); text-decoration: none; }
+.btn:hover { background: #173F28; transform: translateY(-1px); text-decoration: none; box-shadow: 0 4px 12px rgba(31, 83, 53, 0.25); }
 
 .btn.secondary { background: var(--crust); color: var(--cocoa); }
-.btn.secondary:hover { background: #f1c469; }
+.btn.secondary:hover { background: #d2a75b; }
 
 .btn.ghost {
   background: transparent;
@@ -168,14 +173,14 @@ img { max-width: 100%; display: block; }
 }
 .section-sub {
   text-align: center;
-  color: #6b5a45;
+  color: var(--muted);
   margin-bottom: 36px;
   font-size: 1.08rem;
 }
 
 /* ---------- Deals banner ---------- */
 .deal-banner {
-  background: linear-gradient(90deg, var(--terracotta), var(--crust));
+  background: linear-gradient(90deg, var(--terracotta), var(--sage));
   color: #fff;
   text-align: center;
   padding: 14px 16px;
@@ -203,7 +208,7 @@ img { max-width: 100%; display: block; }
 }
 .product-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(59, 42, 26, 0.18);
+  box-shadow: 0 12px 28px rgba(24, 36, 29, 0.1);
 }
 
 .product-img {
@@ -221,13 +226,13 @@ img { max-width: 100%; display: block; }
 
 .product-name { margin: 0 0 6px; }
 .product-desc {
-  color: #6b5a45;
+  color: var(--muted);
   font-size: 0.95rem;
   flex-grow: 1;
   margin-bottom: 14px;
 }
 .product-price {
-  font-family: Georgia, serif;
+  font-family: 'Fraunces', Georgia, serif;
   color: var(--terracotta);
   font-size: 1.4rem;
   font-weight: bold;
@@ -246,7 +251,7 @@ img { max-width: 100%; display: block; }
   cursor: pointer;
   transition: background .15s ease;
 }
-.add-btn:hover { background: #56402a; }
+.add-btn:hover { background: #26362c; }
 .add-btn.added { background: var(--sage); color: #fff; }
 
 /* ---------- Deals callout cards ---------- */
@@ -266,7 +271,7 @@ img { max-width: 100%; display: block; }
 .deal-card .pct {
   font-size: 2.6rem;
   color: var(--terracotta);
-  font-family: Georgia, serif;
+  font-family: 'Fraunces', Georgia, serif;
   font-weight: bold;
   display: block;
   margin-bottom: 4px;
@@ -323,7 +328,7 @@ img { max-width: 100%; display: block; }
 }
 .pairing-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 28px rgba(59, 42, 26, 0.18);
+  box-shadow: 0 12px 28px rgba(24, 36, 29, 0.10);
 }
 .pairing-card h3 {
   color: var(--cocoa);
@@ -331,7 +336,7 @@ img { max-width: 100%; display: block; }
   font-size: 1.2rem;
 }
 .pairing-card p {
-  color: #6b5a45;
+  color: var(--muted);
   margin: 0;
   font-size: 0.97rem;
   line-height: 1.55;
@@ -352,8 +357,11 @@ img { max-width: 100%; display: block; }
 }
 .benefit-card h3 { color: var(--terracotta); }
 .benefit-icon {
-  font-size: 2.2rem;
-  margin-bottom: 8px;
+  color: var(--terracotta);
+  margin-bottom: 14px;
+  display: block;
+}
+.benefit-icon svg {
   display: block;
 }
 
@@ -369,12 +377,12 @@ img { max-width: 100%; display: block; }
 .cart-table th, .cart-table td {
   padding: 16px;
   text-align: left;
-  border-bottom: 1px solid #f0e6d2;
+  border-bottom: 1px solid #E4E9E6;
 }
 .cart-table th {
   background: var(--soft);
   color: var(--cocoa);
-  font-family: Georgia, serif;
+  font-family: 'Fraunces', Georgia, serif;
 }
 .cart-thumb {
   width: 70px; height: 70px; object-fit: cover; border-radius: 8px;
@@ -389,8 +397,9 @@ img { max-width: 100%; display: block; }
   background: var(--crust); color: var(--cocoa);
   border: none; font-weight: bold; cursor: pointer;
   font-size: 1.1rem;
+  transition: background .15s ease;
 }
-.qty-ctrl button:hover { background: #f1c469; }
+.qty-ctrl button:hover { background: #d2a75b; }
 .remove-btn {
   background: none; border: none; color: var(--terracotta);
   cursor: pointer; font-size: 0.9rem; padding: 0;
@@ -415,14 +424,14 @@ img { max-width: 100%; display: block; }
   margin-top: 10px; padding-top: 12px;
   font-size: 1.3rem; font-weight: bold;
   color: var(--terracotta);
-  font-family: Georgia, serif;
+  font-family: 'Fraunces', Georgia, serif;
 }
 .discount { color: var(--sage); font-weight: 600; }
 
 .empty-cart {
   text-align: center;
   padding: 60px 20px;
-  color: #6b5a45;
+  color: var(--muted);
 }
 
 /* ---------- Checkout ---------- */
@@ -446,7 +455,7 @@ img { max-width: 100%; display: block; }
   font-size: 1.15rem;
   margin: 22px 0 14px;
   padding-bottom: 6px;
-  border-bottom: 1px solid #f0e6d2;
+  border-bottom: 1px solid #E4E9E6;
   color: var(--cocoa);
 }
 .checkout-form h2:first-of-type { margin-top: 4px; }
@@ -462,7 +471,7 @@ img { max-width: 100%; display: block; }
   display: block;
   font-size: 0.88rem;
   font-weight: 600;
-  color: #6b5a45;
+  color: var(--muted);
   margin-bottom: 0;
 }
 .checkout-form input[type="text"],
@@ -471,18 +480,18 @@ img { max-width: 100%; display: block; }
   width: 100%;
   margin-top: 6px;
   padding: 11px 13px;
-  border: 1.5px solid #e5d9bf;
+  border: 1.5px solid #D5DDD8;
   border-radius: 8px;
   font-size: 1rem;
   font-family: inherit;
   color: var(--cocoa);
-  background: #fffdf7;
+  background: #FCFDFD;
   transition: border-color .15s ease, box-shadow .15s ease;
 }
 .checkout-form input:focus {
   outline: none;
   border-color: var(--crust);
-  box-shadow: 0 0 0 3px rgba(232, 177, 75, 0.2);
+  box-shadow: 0 0 0 3px rgba(223, 186, 115, 0.25);
 }
 .checkout-form input:invalid:not(:placeholder-shown) {
   border-color: #d06a6a;
@@ -501,7 +510,7 @@ img { max-width: 100%; display: block; }
 
 .co-legal {
   font-size: 0.8rem;
-  color: #8a7960;
+  color: #76877D;
   margin-top: 14px;
   text-align: center;
 }
@@ -534,10 +543,10 @@ img { max-width: 100%; display: block; }
   background: #fff;
 }
 .co-line-name { font-weight: 600; font-size: 0.95rem; }
-.co-line-qty { font-size: 0.85rem; color: #6b5a45; }
+.co-line-qty { font-size: 0.85rem; color: var(--muted); }
 .co-line-total { font-weight: 600; color: var(--cocoa); }
 
-.co-totals { border-top: 1px solid #e5d9bf; padding-top: 14px; }
+.co-totals { border-top: 1px solid #D5DDD8; padding-top: 14px; }
 .co-totals .row { display: flex; justify-content: space-between; padding: 4px 0; font-size: 0.96rem; }
 .co-totals .row.discount { color: var(--sage); font-weight: 600; }
 .co-totals .row.total {
@@ -545,18 +554,18 @@ img { max-width: 100%; display: block; }
   margin-top: 8px; padding-top: 10px;
   font-size: 1.2rem; font-weight: bold;
   color: var(--terracotta);
-  font-family: Georgia, serif;
+  font-family: 'Fraunces', Georgia, serif;
 }
 
 /* Notice about payment processor */
 .co-notice {
   margin-top: 32px;
-  background: #fffdf4;
+  background: #F4F7F5;
   border: 1px dashed var(--crust-dark);
   border-radius: var(--radius);
   padding: 16px 20px;
   font-size: 0.92rem;
-  color: #6b5a45;
+  color: var(--muted);
   line-height: 1.5;
 }
 .co-notice strong { color: var(--cocoa); }
@@ -590,7 +599,8 @@ img { max-width: 100%; display: block; }
   padding: 10px 20px;
   border-radius: 999px;
   margin: 10px 0 22px;
-  font-family: Georgia, serif;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
 }
 
 /* ---------- Toast ---------- */
